@@ -21,29 +21,29 @@ class App extends Component {
     return (
       <Router>
       <div>
-        <div className="fixed-top">
-        <nav className="">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/search">Search</Link>
-            </li>
-            <li>
-              <Link to="/library">Library</Link>
-            </li>
-            <li>
-              <Link to="/customers">Customers</Link>
-            </li>
-            <li>
-              <Link to="/customerdetail">Customer Detail</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-    </Router>
+        <div className="">
+          <nav className="">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/search">Search</Link>
+              </li>
+              <li>
+                <Link to="/library">Library</Link>
+              </li>
+              <li>
+                <Link to="/customers">Customers</Link>
+              </li>
+              <li>
+                <Link to="/customerdetail">Customer Detail</Link>
+              </li>
+              </ul>
+              </nav>
+            </div>
+          </div>
+        </Router>
     );
   }
 }
