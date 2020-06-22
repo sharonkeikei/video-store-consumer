@@ -21,29 +21,35 @@ class App extends Component {
     return (
       <Router>
       <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/search">Search</Link>
+          </li>
+          <li>
+            <Link to="/library">Library</Link>
+          </li>
+          <li>
+            <Link to="/customers">Customers</Link>
+          </li>
+          <li>
+            <Link to="/customerdetails">Customer Details</Link>
+          </li>
+        </ul>
         <div className="">
           <nav className="">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/search">Search</Link>
-              </li>
-              <li>
-                <Link to="/library">Library</Link>
-              </li>
-              <li>
-                <Link to="/customers">Customers</Link>
-              </li>
-              <li>
-                <Link to="/customerdetail">Customer Detail</Link>
-              </li>
-              </ul>
-              </nav>
-            </div>
+            <Route path="/" exact component={Home} />
+            <Route path="/search" component={Search} />
+            <Route path="/library" component={Library} />
+            <Route path="/customers" component={Customers} />
+            <Route path="/customerdetail" component={CustomerDetail} />
+          </nav>
           </div>
-        </Router>
+      </div>
+      </Router>
+    
     );
   }
 }
