@@ -17,9 +17,23 @@ import Customers from './components/Customers';
 import CustomerDetail from './components/CustomerDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App = () => {
+const App = ({url}) => {
 
   const base_url = "http://localhost:3000"
+  const [ movieList, setMovieList ] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    axios.get(url+'movies')
+      .then((response) => {
+        const apiMovieList = response.data;
+        console.log(apiMovieList);
+        setMovieList(apiMovieList);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+  },[]);
 
   return (
     <Router>
@@ -29,16 +43,16 @@ const App = () => {
         <li className="nav-item active">
           <Link to="/">Home</Link>
         </li>
-        <li class="nav-item active">
+        <li className="nav-item active">
           <Link to="/search">Search</Link>
         </li>
-        <li class="nav-item active">
+        <li className="nav-item active">
           <Link to="/library">Library</Link>
         </li>
-        <li class="nav-item active">
+        <li className="nav-item active">
           <Link to="/customers">Customers</Link>
         </li>
-        <li class="nav-item active">
+        <li className="nav-item active">
           <Link to="/customerdetail">Customer Detail</Link>
         </li>
       </ul>
@@ -46,25 +60,15 @@ const App = () => {
       <div className="">
         <nav className="">
         <Switch>
-          <Route path="/">
-            <Home />
-            </Route>
-          <Route path="/search">
-            <Search url={base_url}/> 
-          </Route>
-          <Route path="/library">
-            <Library url={base_url}/>
-          </Route> 
-          <Route path='/customers'>
-            <Customers url={base_url}/>
-          </Route> 
-          <Route path="/customerdetail">
-            <CustomerDetail url={base_url}/>
-          </Route> 
+          <Route path="/" exact component={Home} />
+          <Route path="/search" component={Search} />
+          <Route path="/library" component={Library} />
+          <Route path="/customers" component={Customers} />
+          <Route path="/customerdetail" component={CustomerDetail} />
         </Switch>
         </nav>
         </div>
-    </div>
+      </div>
     </Router>
   );
 }
