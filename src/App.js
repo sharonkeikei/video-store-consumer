@@ -22,9 +22,9 @@ class App extends Component {
     return (
       <Router>
       <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <ul>
-          <li class="nav-item active">
+          <li className="nav-item active">
             <Link to="/">Home</Link>
           </li>
           <li class="nav-item active">
@@ -43,11 +43,13 @@ class App extends Component {
         </nav>
         <div className="">
           <nav className="">
+          <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/search" component={Search} />
             <Route path="/library" component={Library} />
             <Route path="/customers" component={Customers} />
             <Route path="/customerdetail" component={CustomerDetail} />
+          </Switch>
           </nav>
           </div>
       </div>
