@@ -6,13 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Movie = (props) => {
   
   const onButtonClick = () => {
-    props.movieCallback(props.id)
+    props.movieClickCallback(props.id)
   }
   
   return (
     <div className="card">
     <section className="card_content">
-      <img src={props.image_url} alt={props.title}></img>
+      <div className="card">
+        <img src={props.image_url} alt={props.title}/>
+      </div>
       <p className="card-text">{props.title}</p>
       <p className="card-text">{props.overview}</p>
       <p className="card-text">{props.release_date}</p>

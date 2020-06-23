@@ -25,12 +25,10 @@ const Library = ({baseUrl}) => {
   const libraryComponent = movieList.map((movie, i) => {
     return (
       <Movie
-        key={movie["id"]}
-        title={movie["title"]}
-        overview={movie["overview"]}
-        image={movie["image_url"]}
-        release_date={movie["release_date"]}
-        // movieClickCallback={movieClickCallback}
+        key={movie.external_id}
+        {...movie}
+        movieClickCallback={movieClickCallback}
+        action={"Select Movie"} />
       />
     )
   });
