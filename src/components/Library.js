@@ -1,8 +1,8 @@
-// import React from 'react';
 import './Library.css';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import Movie from './Movie';
 
 
 const Library = ({baseUrl}) => {
@@ -22,11 +22,29 @@ const Library = ({baseUrl}) => {
       });
   },[]);
 
+  const libraryComponent = movieList.map((movie, i) => {
+    return (
+      <Movie
+        key={movie["id"]}
+        title={movie["title"]}
+        overview={movie["overview"]}
+        image={movie["image_url"]}
+        release_date={movie["release_date"]}
+        // movieClickCallback={movieClickCallback}
+      />
+    )
+  });
+
   return (
     <div className="">
-      <h2>Library</h2>
+      {libraryComponent}
     </div>
   )
+}
+
+Library.propTypes = {
+  library: PropTypes.array.isRequired,
+  movieClickCallback: PropTypes.func.isRequired
 }
 
 export default Library;
