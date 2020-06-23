@@ -18,6 +18,19 @@ import CustomerDetail from './components/CustomerDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
+  state = {
+    movies: []
+  }
+
+  componentDidMount() {
+    axios.get(this.props.url+'movies')
+      .then(res => {
+        const movies = res.data;
+        console.log(movies);
+        this.setState({ movies });
+      })
+  }
+
   render() {
     return (
       <Router>
@@ -58,5 +71,8 @@ class App extends Component {
     );
   }
 }
+    App.propTypes = {
+      url: PropTypes.string.isRequired,
+    }
 
 export default App;
