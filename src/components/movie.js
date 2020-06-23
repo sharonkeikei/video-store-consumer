@@ -31,7 +31,7 @@ Movie.propTypes = {
   release_date: PropTypes.string,
   image_url: PropTypes.string.isRequired,
   external_id: PropTypes.number.isRequired,
-  movieCallback: PropTypes.func.isRequired,
-  action: PropTypes.string.isRequired,
+  // movieClickCallback: PropTypes.func.isRequired,
+  // action: PropTypes.string.isRequired,
 }
 export default Movie;

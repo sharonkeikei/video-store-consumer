@@ -49,12 +49,16 @@ const App = ({url}) => {
           <Route path="/" exact component={Home} />
           <Route path="/search" component={Search} />
           <Route exact path="/library">
-          <Library
-            baseUrl={BASE_URL}
-            // movieList={movieList}
-          />
+            <Library
+              baseUrl={BASE_URL}
+              // movieList={movieList}
+            />
           </Route>
-          <Route path="/customers" component={Customers} />
+          <Route exact path="/customers">
+            <Customers
+              baseUrl={BASE_URL}
+            />
+          </Route>
           <Route path="/customerdetail" component={CustomerDetail} />
         </Switch>
         </nav>

@@ -1,10 +1,40 @@
-import React from 'react';
 import './Customers.css';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
+import Customer from './Customer';
 
-const Customers = () => {
+const Customers = ({baseUrl}) => {
+  const [ customersList, setCustomersList ] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    axios.get(baseUrl+'customers')
+      .then((response) => {
+        const apiCustomersList = response.data;
+        console.log(apiCustomersList);
+        setCustomersList(apiCustomersList);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+  },[]);
+
+  const customerComponent = customersList.map((customer, i) => {
+    return (
+      <Customer
+        key={customer.external_id}
+        {...customer}
+        // TODO: add onClickCallBack for selecting the customers
+        // customerClickCallback={customerClickCallback}
+        // action={"Select Customer"} 
+      />
+    )
+  });
+
   return (
     <div className="">
-      <h2>Customers</h2>
+      {customerComponent}
     </div>
   )
 }
