@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Movie = (props) => {
   
+  // TODO: get this onclickcallback function to work to select movie
   const onButtonClick = () => {
     props.movieClickCallback(props.id)
   }

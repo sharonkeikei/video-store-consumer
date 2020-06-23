@@ -27,8 +27,9 @@ const Library = ({baseUrl}) => {
       <Movie
         key={movie.external_id}
         {...movie}
-        movieClickCallback={movieClickCallback}
-        action={"Select Movie"} />
+        // TODO: add onClickCallBack for selecting the movie
+        // movieClickCallback={movieClickCallback}
+        // action={"Select Movie"} 
       />
     )
   });
