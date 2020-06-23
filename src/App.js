@@ -19,21 +19,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = ({url}) => {
 
-  const base_url = "http://localhost:3000"
-  const [ movieList, setMovieList ] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(null);
-
-  useEffect(() => {
-    axios.get(url+'movies')
-      .then((response) => {
-        const apiMovieList = response.data;
-        console.log(apiMovieList);
-        setMovieList(apiMovieList);
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      });
-  },[]);
+  const BASE_URL = url
 
   return (
     <Router>
@@ -62,7 +48,12 @@ const App = ({url}) => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/search" component={Search} />
-          <Route path="/library" component={Library} />
+          <Route exact path="/library">
+          <Library
+            baseUrl={BASE_URL}
+            // movieList={movieList}
+          />
+          </Route>
           <Route path="/customers" component={Customers} />
           <Route path="/customerdetail" component={CustomerDetail} />
         </Switch>
