@@ -18,7 +18,8 @@ const Customers = (props) => {
       <p className="card-text">{props.address}</p>
       <p className="card-text">{props.city}, {props.state}, {props.postal_code}</p>
       <p className="card-text">{props.phone}</p>
-      <p className="card-text">$ {props.account_credit}</p>
+      <p className="card-text">Memeber since: {Date(props.registered_at)}</p>
+      <p className="card-text"> Account Credit: ${props.account_credit}</p>
       <p className="card-text">Movies Checked Out: {props.movies_checked_out_count}</p>
     </section>
   </div>
