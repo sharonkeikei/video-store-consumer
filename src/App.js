@@ -47,7 +47,11 @@ const App = ({url}) => {
         <nav className="">
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/search" component={Search} />
+          <Route path="/search">  
+            <Search  
+              baseUrl={BASE_URL}
+            />
+          </Route>        
           <Route exact path="/library">
             <Library
               baseUrl={BASE_URL}
