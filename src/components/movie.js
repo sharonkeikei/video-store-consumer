@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'movie.css';
+import './Movie.css';
 
 const Movie = (props) => {
   
@@ -11,14 +11,14 @@ const Movie = (props) => {
   }
   
   return (
-    <div className="container">
-    <section className="">
-      <div className="">
+    <div className="container card-list">
+    <section className="card">
+      <div className="card--image">
         <img src={props.image_url} alt={props.title}/>
       </div>
-      <p className="card-text">{props.title}</p>
-      <p className="card-text">{props.overview}</p>
-      <p className="card-text">{props.release_date}</p>
+      <p className="card--title">{props.title}</p>
+      <p>{props.overview}</p>
+      <p>Release date: {props.release_date}</p>
     </section>
   </div>
   );

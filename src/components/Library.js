@@ -35,8 +35,8 @@ const Library = ({baseUrl}) => {
   });
 
   return (
-    <div className="">
-      <h3>Browse all the movies</h3>
+    <div className="container">
+      <h3 className='title'>Browse all the movies</h3>
       {libraryComponent}
     </div>
   )
