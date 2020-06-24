@@ -100,7 +100,10 @@ const App = ({url}) => {
             />
           </Route>
           <Route exact path="/customerdetail">
-            <CustomerDetail />
+            <CustomerDetail 
+            baseUrl={BASE_URL}
+            customer={customer}
+            />
           </Route> 
         </Switch>
         </nav>
