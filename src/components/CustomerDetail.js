@@ -2,7 +2,7 @@ import './CustomerDetail.css';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import Customer from './Customer';
+
 
 const CustomerDetail = ({baseUrl , customer}) => {
   const [checkoutList, setCheckOutList] = useState([])
@@ -20,7 +20,12 @@ const CustomerDetail = ({baseUrl , customer}) => {
       });
   },[]);
 
- 
+  const returnMovie = (movie) => {
+    axios.post((baseUrl+'rentals/'+ movie +'/return'),{
+      customer_id: customer.id,
+    })
+  } 
+
   const customerCheckoutListComponent = checkoutList.map((rental, i) => {
     if (checkoutList.length > 0 ){
       return (
@@ -28,11 +33,11 @@ const CustomerDetail = ({baseUrl , customer}) => {
           <td>{ rental.title }</td>
           <td>{ rental.checkout_date }</td>
           <td>{ rental.due_date }</td>
-          <td>{ rental.returned ? "RETURNED" : "CHECKED-OUT" }</td>
-          <td>{ rental.returned ? 
+          <td>{ rental.status ? "RETURNED" : "CHECKED-OUT" }</td>
+          <td>{ rental.status ? 
                 "" : <button 
                   className="btn btn-primary" 
-                  onClick={() => {} }
+                  onClick={() => {returnMovie(rental.title)} }
                 >
                 Return
                 </button> }</td>
@@ -64,9 +69,6 @@ const CustomerDetail = ({baseUrl , customer}) => {
           <tbody>{customerCheckoutListComponent}</tbody>
         </table>
         </div>
-      
-  
-      
     </div>
   )
 }
