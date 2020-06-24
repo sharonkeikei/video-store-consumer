@@ -9,6 +9,14 @@ const CustomerDetail = ({baseUrl , customer}) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
+    getCustomer()
+  },[]);
+
+  useEffect(() => {
+    returnMovie()
+  },[]);
+
+  const getCustomer = () => {
     axios.get(baseUrl+'customers/'+ customer.id)
       .then((response) => {
         const customerCheckoutList = response.data;
@@ -18,11 +26,17 @@ const CustomerDetail = ({baseUrl , customer}) => {
       .catch((error) => {
         setErrorMessage(error.message);
       });
-  },[]);
-  // TODO: make the return Movie dynamically
+  }
+
   const returnMovie = (movie) => {
     axios.post((baseUrl+'rentals/'+ movie +'/return'),{
-      customer_id: customer.id,
+      customer_id: customer.id,  
+    })
+    .then(() => {
+      getCustomer(); 
+    })
+    .catch((error) => {
+      setErrorMessage(error.message);
     })
   } 
 
@@ -54,7 +68,7 @@ const CustomerDetail = ({baseUrl , customer}) => {
   return (
     <div className="container">
       <h3>Customer Record</h3>
-
+      <h5>{customer.name}</h5>
       <div className="container">
         <table className="table">
           <thead>
