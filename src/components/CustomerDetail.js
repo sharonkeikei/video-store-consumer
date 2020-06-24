@@ -20,15 +20,30 @@ const CustomerDetail = ({baseUrl , customer}) => {
       });
   },[]);
 
+ 
   const customerCheckoutListComponent = checkoutList.map((rental, i) => {
-    return (
-      <tr key={ i }>
-        <td>{ rental.title }</td>
-        <td>{ rental.checkout_date }</td>
-        <td>{ rental.due_date }</td>
-        <td>{ rental.returned ? "RETURNED" : "CHECKED-OUT" }</td>
-      </tr>
-    )
+    if (checkoutList.length > 0 ){
+      return (
+        <tr key={ i }>
+          <td>{ rental.title }</td>
+          <td>{ rental.checkout_date }</td>
+          <td>{ rental.due_date }</td>
+          <td>{ rental.returned ? "RETURNED" : "CHECKED-OUT" }</td>
+          <td>{ rental.returned ? 
+                "" : <button 
+                  className="btn btn-primary" 
+                  onClick={() => {} }
+                >
+                Return
+                </button> }</td>
+        </tr>
+      )
+    } else {
+      return (
+        // TODO: make a message to show customer doesnt have rentals
+        "No check out from this customer yet!"
+      )
+    }
   });
   
   return (
@@ -43,7 +58,7 @@ const CustomerDetail = ({baseUrl , customer}) => {
               <th>Check Out Date</th>
               <th>Due Date</th>
               <th>Status</th>
-              <th></th>
+              <th>Return?</th>
             </tr>
           </thead> 
           <tbody>{customerCheckoutListComponent}</tbody>
