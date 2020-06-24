@@ -29,9 +29,6 @@ const Library = ({baseUrl, onClickCallBack}) => {
         {...movie}
         onClickCallBack={onClickCallBack} 
         action={"Select Movie"}
-        // TODO: add onClickCallBack for selecting the movie
-        // movieClickCallback={movieClickCallback}
-        // action={"Select Movie"} 
       />
     )
   });
@@ -48,8 +45,8 @@ const Library = ({baseUrl, onClickCallBack}) => {
 }
 
 Library.propTypes = {
-  library: PropTypes.array.isRequired,
-  movieClickCallback: PropTypes.func.isRequired
+  // movieList: PropTypes.array.isRequired,
+  onClickCallBack: PropTypes.func.isRequired
 }
 
 export default Library;
