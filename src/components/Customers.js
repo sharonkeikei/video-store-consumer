@@ -32,7 +32,7 @@ const Customers = ({baseUrl, onClickCallBack}) => {
   });
 
   return (
-    <div className="container">
+    <div className="container customer-container">
       <h3>List of Customers</h3>
       {customerComponent}
     </div>
