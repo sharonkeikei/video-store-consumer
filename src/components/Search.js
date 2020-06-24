@@ -39,7 +39,7 @@ const Search = ({baseUrl}) => {
   });
 
   return (
-    <div className="">
+    <div className="container">
       <h2>Search</h2>
       <form className="form-inline" onSubmit={handleChange}>
         <input  className="form-control mr-sm-2" type="search" 
