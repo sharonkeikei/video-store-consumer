@@ -7,12 +7,12 @@ const Customers = (props) => {
   const onButtonClick = () => {
     props.customerClickCallback(props.id)
   }
-
+const url = "http://lorempixel.com/640/380/cats/random"
   return (
     <div className="container">
     <section className="">
       <div className="">
-        <img src="http://lorempixel.com/640/380/cats/random" alt="customer_pic"/>
+        <img src={url+props.id} alt="customer_pic"/>
       </div>
       <p>{props.name}</p>
       <p>{props.address}</p>
