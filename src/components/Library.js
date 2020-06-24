@@ -37,6 +37,9 @@ const Library = ({baseUrl}) => {
   return (
     <div className="container">
       <h3 className='title'>Browse all the movies</h3>
+      <div>
+        {errorMessage ? <div><h2 className="validation-errors-display">{errorMessage}</h2></div> : ''}
+      </div>
       {libraryComponent}
     </div>
   )
