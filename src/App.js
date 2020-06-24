@@ -31,6 +31,10 @@ const App = ({url}) => {
           <Link to="/customers">Customers</Link>     
           <Link to="/customerdetail">Customer Detail</Link>
       </nav>
+      <div className='container'>
+        <p> Selected Customer: </p>
+        <p> Selected Movie: </p>
+      </div>
       <div className="">
         <nav className="">
         <Switch>
