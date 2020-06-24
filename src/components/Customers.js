@@ -27,9 +27,6 @@ const Customers = ({baseUrl, onClickCallBack}) => {
         {...customer}
         onClickCallBack={onClickCallBack} 
         action={"Select Customer"}
-        // TODO: add onClickCallBack for selecting the customers
-        // customerClickCallback={customerClickCallback}
-        // action={"Select Customer"} 
       />
     )
   });

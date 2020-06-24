@@ -5,7 +5,7 @@ import axios from 'axios';
 import Movie from './Movie';
 
 
-const Library = ({baseUrl}) => {
+const Library = ({baseUrl, onClickCallBack}) => {
   
   const [ movieList, setMovieList ] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -27,6 +27,8 @@ const Library = ({baseUrl}) => {
       <Movie
         key={movie.external_id}
         {...movie}
+        onClickCallBack={onClickCallBack} 
+        action={"Select Movie"}
         // TODO: add onClickCallBack for selecting the movie
         // movieClickCallback={movieClickCallback}
         // action={"Select Movie"} 

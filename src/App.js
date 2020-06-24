@@ -20,14 +20,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App = ({url}) => {
 
   const BASE_URL = url
-  const [ customer, setCustomer ] = useState(null);
+  const [ customer, setCustomer ] = useState("");
   const [ movie, setMovie ] = useState(null);
   // const [errorMessage, setErrorMessage] = useState(null);
-  let customerName = ""
+  // let customerName = ""
 
   const selectCustomer = (customer) => {
-    customerName = customer.name
+    const customerName = customer.name
     setCustomer(customerName);
+  }
+  const selectMovie = (movie) => {
+    const movieName = movie.title
+    setMovie(movieName);
   }
 
   return (
@@ -42,7 +46,7 @@ const App = ({url}) => {
       </nav>
       <div className='container'>
         <p> Selected Customer: {customer}</p>
-        <p> Selected Movie: </p>
+        <p> Selected Movie: {movie} </p>
       </div>
       <div className="">
         <nav className="">
@@ -56,7 +60,7 @@ const App = ({url}) => {
           <Route exact path="/library">
             <Library
               baseUrl={BASE_URL}
-              // movieList={movieList}
+              onClickCallBack={selectMovie}
             />
           </Route>
           <Route exact path="/customers">

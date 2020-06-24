@@ -5,10 +5,6 @@ import './Movie.css';
 
 const Movie = (props) => {
   
-  // TODO: get this onclickcallback function to work to select movie
-  const onButtonClick = () => {
-    props.movieClickCallback(props.id)
-  }
   
   return (
     <div className="container card-list">
@@ -19,6 +15,12 @@ const Movie = (props) => {
       <p className="card--title">{props.title}</p>
       <p>{props.overview}</p>
       <p>Release date: {props.release_date}</p>
+      <button 
+          className="btn btn-primary" 
+          onClick={() => {props.onClickCallBack(props)} }
+          >
+          Select Movie
+      </button>
     </section>
   </div>
   );
