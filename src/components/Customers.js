@@ -33,7 +33,8 @@ const Customers = ({baseUrl}) => {
   });
 
   return (
-    <div className="">
+    <div className="container">
+      <h3>List of Customers</h3>
       {customerComponent}
     </div>
   )
