@@ -32,3 +32,8 @@
   margin: 0 auto;
   display: block
 }
+.center {
+  padding: 70px 0;
+  border: 3px solid green;
+  text-align: center;
+}
