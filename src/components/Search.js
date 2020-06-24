@@ -10,21 +10,21 @@ const Search = ({baseUrl}) => {
   const [movies, setMovies] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const handleChange = event => {
-    setQuery(event.target.value);
+  const handleChange = (event) => {
+    event.preventDefault();
+    if (query) {
+      setQuery(event.target.value);
+      axios.get(baseUrl+'movies?query=<'+ query+'>')
+        .then((response) => {
+          const apiMoviesList = response.data;
+          console.log(apiMoviesList);
+          setMovies(apiMoviesList);
+        })
+        .catch((error) => {
+          setErrorMessage(error.message);
+        });
+    }
   }
-  useEffect(() => {
-    console.log(baseUrl)
-    axios.get(baseUrl+'movies?query=<'+ query+'>')
-      .then((response) => {
-        const apiMoviesList = response.data;
-        console.log(apiMoviesList);
-        setMovies(apiMoviesList);
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      });
-  },[]);
 
   const SearchComponent = movies.map((movie, i) => {
     return (
@@ -48,7 +48,7 @@ const Search = ({baseUrl}) => {
         />
         <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
-      {/* <SearchComponent /> */}
+      {SearchComponent}
     </div>
     
   )

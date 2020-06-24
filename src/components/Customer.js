@@ -9,9 +9,9 @@ const Customers = (props) => {
   }
 
   return (
-    <div className="card">
-    <section className="card_content">
-      <div className="card">
+    <div className="container">
+    <section className="">
+      <div className="">
         <img src="https://placedog.net/640/480?random" alt="customer_pic"/>
       </div>
       <p className="card-text">{props.name}</p>
