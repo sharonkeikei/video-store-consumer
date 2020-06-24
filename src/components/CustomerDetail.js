@@ -19,7 +19,7 @@ const CustomerDetail = ({baseUrl , customer}) => {
         setErrorMessage(error.message);
       });
   },[]);
-
+  // TODO: make the return Movie dynamically
   const returnMovie = (movie) => {
     axios.post((baseUrl+'rentals/'+ movie +'/return'),{
       customer_id: customer.id,
