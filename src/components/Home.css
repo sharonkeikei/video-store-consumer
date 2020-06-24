@@ -1,0 +1,17 @@
+.title {
+  text-align: center;
+}
+.homepage {
+  margin: 20px;
+  text-align: center;
+}
+.homepage-video{
+  margin-left: auto;
+  margin-right: auto;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

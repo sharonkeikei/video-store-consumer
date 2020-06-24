@@ -1,0 +1,9 @@
+.container{
+ margin: 10px;
+ text-align: center;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}

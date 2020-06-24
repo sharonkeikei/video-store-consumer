@@ -39,8 +39,8 @@ const Search = ({baseUrl}) => {
   });
 
   return (
-    <div className="">
-      <h2>Search</h2>
+    <div className="container">
+      <h3>Search A Movie</h3>
       <form className="form-inline" onSubmit={handleChange}>
         <input  className="form-control mr-sm-2" type="search" 
                 placeholder="Search for a movie.." aria-label="Search" 

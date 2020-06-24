@@ -5,7 +5,7 @@ import axios from 'axios';
 import Movie from './Movie';
 
 
-const Library = ({baseUrl}) => {
+const Library = ({baseUrl, onClickCallBack}) => {
   
   const [ movieList, setMovieList ] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -27,24 +27,26 @@ const Library = ({baseUrl}) => {
       <Movie
         key={movie.external_id}
         {...movie}
-        // TODO: add onClickCallBack for selecting the movie
-        // movieClickCallback={movieClickCallback}
-        // action={"Select Movie"} 
+        onClickCallBack={onClickCallBack} 
+        action={"Select Movie"}
       />
     )
   });
 
   return (
-    <div className="">
-      <h3>Browse all the movies</h3>
+    <div className="container">
+      <h3 className='title'>Browse all the movies</h3>
+      <div>
+        {errorMessage ? <div><h2 className="validation-errors-display">{errorMessage}</h2></div> : ''}
+      </div>
       {libraryComponent}
     </div>
   )
 }
 
 Library.propTypes = {
-  library: PropTypes.array.isRequired,
-  movieClickCallback: PropTypes.func.isRequired
+  // movieList: PropTypes.array.isRequired,
+  onClickCallBack: PropTypes.func.isRequired
 }
 
 export default Library;
