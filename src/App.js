@@ -22,16 +22,41 @@ const App = ({url}) => {
   const BASE_URL = url
   const [ customer, setCustomer ] = useState("");
   const [ movie, setMovie ] = useState(null);
-  // const [errorMessage, setErrorMessage] = useState(null);
-  // let customerName = ""
+  const [ flash, setFlash ] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const selectCustomer = (customer) => {
-    const customerName = customer.name
-    setCustomer(customerName);
+    const selectedCustomer = customer
+    setCustomer(selectedCustomer);
   }
   const selectMovie = (movie) => {
     const movieName = movie.title
     setMovie(movieName);
+  }
+
+  if (movie && customer) {
+    console.log(url+'rentals/'+movie+'/check-out')
+    console.log(customer.id)
+  }
+
+  const makeRental = () => {
+    const today = new Date();
+    const dueDate = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+
+    if (customer && movie) {
+      axios.post((url+'rentals/'+movie+'/check-out'),{
+        customer_id: customer.id,
+        due_date: dueDate
+      })
+        .then((response) => {
+          const flashMsg = "Successfully Checked out Movie"
+          console.log(flashMsg);
+          setFlash(flashMsg);
+        })
+        .catch((error) => {
+          setErrorMessage(error.message);
+        });
+    }
   }
 
   return (
@@ -45,9 +70,17 @@ const App = ({url}) => {
           <Link to="/customerdetail">Customer Detail</Link>
       </nav>
       <div className='container'>
-        <p> Selected Customer: {customer}</p>
+        <p> Selected Customer: {customer.name}</p>
         <p> Selected Movie: {movie} </p>
+        <button 
+          className="btn btn-primary" 
+          onClick={() => {makeRental(customer, movie)} }
+          >
+          Make Rental
+          </button>
       </div>
+      { flash ? <p className="center-error-message alert alert-success">{ flash }</p> : '' }
+      { errorMessage ? <p className="center-error-message alert alert-danger">{ errorMessage }</p> : '' }
       <div className="">
         <nav className="">
         <Switch>
