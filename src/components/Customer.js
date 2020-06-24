@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import './Customer.css';
 
-const Customers = (props) => {
-  // TODO: get this onclickcallback function to work to select movie
-  const onButtonClick = () => {
-    props.customerClickCallback(props.id)
-  }
+const Customer = (props) => {
+  // console.log(props)
+
 const url = "http://lorempixel.com/640/380/cats/random"
   return (
     <div className="container">
@@ -23,10 +21,16 @@ const url = "http://lorempixel.com/640/380/cats/random"
           <p>Memeber since: {Date(props.registered_at)}</p>
           <p> Account Credit: ${props.account_credit}</p>
           <p>Movies Checked Out: {props.movies_checked_out_count}</p>
+          <button 
+          className="btn btn-primary" 
+          onClick={() => {props.onClickCallBack(props)} }
+          >
+          Select Customer
+          </button>
         </div>
       </section>
   </div>
   )
 }
 
-export default Customers;
+export default Customer;

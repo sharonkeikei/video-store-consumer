@@ -20,6 +20,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App = ({url}) => {
 
   const BASE_URL = url
+  const [ customer, setCustomer ] = useState(null);
+  const [ movie, setMovie ] = useState(null);
+  // const [errorMessage, setErrorMessage] = useState(null);
+  let customerName = ""
+
+  const selectCustomer = (customer) => {
+    customerName = customer.name
+    setCustomer(customerName);
+  }
 
   return (
     <Router>
@@ -32,7 +41,7 @@ const App = ({url}) => {
           <Link to="/customerdetail">Customer Detail</Link>
       </nav>
       <div className='container'>
-        <p> Selected Customer: </p>
+        <p> Selected Customer: {customer}</p>
         <p> Selected Movie: </p>
       </div>
       <div className="">
@@ -53,9 +62,12 @@ const App = ({url}) => {
           <Route exact path="/customers">
             <Customers
               baseUrl={BASE_URL}
+              onClickCallBack={selectCustomer} 
             />
           </Route>
-          <Route path="/customerdetail" component={CustomerDetail} />
+          <Route exact path="/customerdetail">
+            <CustomerDetail />
+          </Route> 
         </Switch>
         </nav>
         </div>

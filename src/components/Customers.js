@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Customer from './Customer';
 
-const Customers = ({baseUrl}) => {
+const Customers = ({baseUrl, onClickCallBack}) => {
   const [ customersList, setCustomersList ] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
-
+ 
   useEffect(() => {
     axios.get(baseUrl+'customers')
       .then((response) => {
@@ -25,6 +25,8 @@ const Customers = ({baseUrl}) => {
       <Customer
         key={customer.external_id}
         {...customer}
+        onClickCallBack={onClickCallBack} 
+        action={"Select Customer"}
         // TODO: add onClickCallBack for selecting the customers
         // customerClickCallback={customerClickCallback}
         // action={"Select Customer"} 
