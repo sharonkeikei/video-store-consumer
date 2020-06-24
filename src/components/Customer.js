@@ -12,15 +12,15 @@ const Customers = (props) => {
     <div className="container">
     <section className="">
       <div className="">
-        <img src="https://placedog.net/640/480?random" alt="customer_pic"/>
+        <img src="http://lorempixel.com/640/380/cats/random" alt="customer_pic"/>
       </div>
-      <p className="card-text">{props.name}</p>
-      <p className="card-text">{props.address}</p>
-      <p className="card-text">{props.city}, {props.state}, {props.postal_code}</p>
-      <p className="card-text">{props.phone}</p>
-      <p className="card-text">Memeber since: {Date(props.registered_at)}</p>
-      <p className="card-text"> Account Credit: ${props.account_credit}</p>
-      <p className="card-text">Movies Checked Out: {props.movies_checked_out_count}</p>
+      <p>{props.name}</p>
+      <p>{props.address}</p>
+      <p>{props.city}, {props.state}, {props.postal_code}</p>
+      <p>{props.phone}</p>
+      <p>Memeber since: {Date(props.registered_at)}</p>
+      <p> Account Credit: ${props.account_credit}</p>
+      <p>Movies Checked Out: {props.movies_checked_out_count}</p>
     </section>
   </div>
   )
