@@ -16,7 +16,7 @@ const url = "http://lorempixel.com/640/380/cats/random"
           <img src={url+props.id} alt="customer_pic" className="customer-pic"/>
         </div>
         <div className="customer-info-text">
-          <p>{props.name}</p>
+          <p><strong>{props.name}</strong></p>
           <p>{props.address}</p>
           <p>{props.city}, {props.state}, {props.postal_code}</p>
           <p>{props.phone}</p>
