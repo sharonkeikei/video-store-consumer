@@ -24,24 +24,12 @@ const App = ({url}) => {
   return (
     <Router>
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <ul>
-        <li className="nav-item active">
+      <nav className="topnav">
           <Link to="/">Home</Link>
-        </li>
-        <li className="nav-item active">
           <Link to="/search">Search</Link>
-        </li>
-        <li className="nav-item active">
           <Link to="/library">Library</Link>
-        </li>
-        <li className="nav-item active">
-          <Link to="/customers">Customers</Link>
-        </li>
-        <li className="nav-item active">
+          <Link to="/customers">Customers</Link>     
           <Link to="/customerdetail">Customer Detail</Link>
-        </li>
-      </ul>
       </nav>
       <div className="">
         <nav className="">
