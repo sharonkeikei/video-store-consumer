@@ -34,24 +34,21 @@ const App = ({url}) => {
     setMovie(movieName);
   }
 
-  if (movie && customer) {
-    console.log(url+'rentals/'+movie+'/check-out')
-    console.log(customer.id)
-  }
-
   const makeRental = () => {
     const today = new Date();
     const dueDate = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
 
     if (customer && movie) {
-      axios.post((url+'rentals/'+movie+'/check-out'),{
+      axios.post((url+'rentals/'+ movie +'/check-out'),{
         customer_id: customer.id,
         due_date: dueDate
       })
         .then((response) => {
-          const flashMsg = "Successfully Checked out Movie"
+          const flashMsg = movie+ " is successfully checked out by "+ customer.name
           console.log(flashMsg);
-          setFlash(flashMsg);
+          setTimeout(() => {
+            setFlash(flashMsg);
+          }, 3000);
         })
         .catch((error) => {
           setErrorMessage(error.message);
