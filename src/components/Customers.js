@@ -7,7 +7,7 @@ import Customer from './Customer';
 const Customers = ({baseUrl, onClickCallBack}) => {
   const [ customersList, setCustomersList ] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
- 
+
   useEffect(() => {
     axios.get(baseUrl+'customers')
       .then((response) => {
@@ -32,9 +32,11 @@ const Customers = ({baseUrl, onClickCallBack}) => {
   });
 
   return (
-    <div className="container customer-container">
-      <h3>List of Customers</h3>
-      {customerComponent}
+    <div className=''>
+      <h3 className='title'>List of Customers</h3>
+      <div className='customers-list'>
+        {customerComponent}
+      </div>
     </div>
   )
 }

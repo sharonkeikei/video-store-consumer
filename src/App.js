@@ -36,7 +36,7 @@ const App = ({url}) => {
 
   const makeRental = () => {
     const today = new Date();
-    const dueDate = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const dueDate = new Date(new Date().getTime() + (7 * 24 * 3600 * 1000));
 
     if (customer && movie) {
       axios.post((url+'rentals/'+ movie +'/check-out'),{
@@ -46,8 +46,12 @@ const App = ({url}) => {
         .then((response) => {
           const flashMsg = movie+ " is successfully checked out by "+ customer.name
           console.log(flashMsg);
+          setCustomer("");
+          setMovie("");
+          setFlash(flashMsg);
+
           setTimeout(() => {
-            setFlash(flashMsg);
+            setFlash(null)
           }, 3000);
         })
         .catch((error) => {
@@ -64,17 +68,27 @@ const App = ({url}) => {
           <Link to="/search">Search</Link>
           <Link to="/library">Library</Link>
           <Link to="/customers">Customers</Link>     
-          <Link to="/customerdetail">Customer Detail</Link>
       </nav>
       <div className='container'>
-        <p> Selected Customer: {customer.name}</p>
-        <p> Selected Movie: {movie} </p>
-        <button 
-          className="btn btn-primary" 
-          onClick={() => {makeRental(customer, movie)} }
-          >
-          Make Rental
-          </button>
+        <p> 
+          Selected Customer: <span className='text_box'>{customer.name}</span>
+          < Link to ="/customerdetail">
+            <button 
+              className="btn btn-primary" 
+            >
+            Customer Detail
+            </button>
+          </Link>
+        </p>
+        <p> 
+          Selected Movie: <span className='text_box'>{movie}</span>  
+          <button 
+            className="btn btn-primary" 
+            onClick={() => {makeRental(customer, movie)} }
+            >
+            Make Rental
+            </button>
+        </p>
       </div>
       { flash ? <p className="center-error-message alert alert-success">{ flash }</p> : '' }
       { errorMessage ? <p className="center-error-message alert alert-danger">{ errorMessage }</p> : '' }

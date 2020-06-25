@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Movie.css';
+import './movie.css';
 
 const Movie = (props) => {
   
   
   return (
-    <div className="container card-list">
-    <section className="card">
+    <section className="card movie-card">
       <div className="card--image">
         <img src={props.image_url} alt={props.title}/>
       </div>
-      <p className="card--title">{props.title}</p>
-      <p>{props.overview}</p>
-      <p>Release date: {props.release_date}</p>
+      <div className="card-description">
+        <p className="card--title">{props.title}</p>
+        <p className="card--overview">{props.overview}</p>
+        <p>Release date: {props.release_date}</p>
+      </div>
       <button 
           className="btn btn-primary" 
           onClick={() => {props.onClickCallBack(props)} }
@@ -22,7 +23,6 @@ const Movie = (props) => {
           Select Movie
       </button>
     </section>
-  </div>
   );
 };
 

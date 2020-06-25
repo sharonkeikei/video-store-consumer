@@ -34,12 +34,14 @@ const Library = ({baseUrl, onClickCallBack}) => {
   });
 
   return (
-    <div className="container">
+    <div>
       <h3 className='title'>Browse all the movies</h3>
-      <div>
-        {errorMessage ? <div><h2 className="validation-errors-display">{errorMessage}</h2></div> : ''}
+      <div className="movies-container card-list">
+        <div>
+          {errorMessage ? <div><h2 className="validation-errors-display">{errorMessage}</h2></div> : ''}
+        </div>
+        {libraryComponent}
       </div>
-      {libraryComponent}
     </div>
   )
 }

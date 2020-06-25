@@ -53,3 +53,15 @@
   background-color: #4CAF50;
   color: white;
 }
+.text_box {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: .375rem .75rem;
+  color: #007bff;
+  border: #007bff 1px solid;
+  min-width: 10rem;
+  min-height: 2.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}

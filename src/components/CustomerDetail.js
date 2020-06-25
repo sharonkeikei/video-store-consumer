@@ -60,7 +60,7 @@ const CustomerDetail = ({baseUrl , customer}) => {
     } else {
       return (
         // TODO: make a message to show customer doesnt have rentals
-        "No check out from this customer yet!"
+        <tr>"No check out from this customer yet!"</tr>
       )
     }
   });
