@@ -1,5 +1,9 @@
-.customers-container {
+.customers-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: row;
+}
+
+.title {
+  margin: 15px;
+  text-align: center;
 }
