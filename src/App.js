@@ -64,17 +64,27 @@ const App = ({url}) => {
           <Link to="/search">Search</Link>
           <Link to="/library">Library</Link>
           <Link to="/customers">Customers</Link>     
-          <Link to="/customerdetail">Customer Detail</Link>
       </nav>
       <div className='container'>
-        <p> Selected Customer: {customer.name}</p>
-        <p> Selected Movie: {movie} </p>
-        <button 
-          className="btn btn-primary" 
-          onClick={() => {makeRental(customer, movie)} }
-          >
-          Make Rental
-          </button>
+        <p> 
+          Selected Customer: <span className='text_box'>{customer.name}</span>
+          < Link to ="/customerdetail">
+            <button 
+              className="btn btn-primary" 
+            >
+            Customer Detail
+            </button>
+          </Link>
+        </p>
+        <p> 
+          Selected Movie: <span className='text_box'>{movie}</span>  
+          <button 
+            className="btn btn-primary" 
+            onClick={() => {makeRental(customer, movie)} }
+            >
+            Make Rental
+            </button>
+        </p>
       </div>
       { flash ? <p className="center-error-message alert alert-success">{ flash }</p> : '' }
       { errorMessage ? <p className="center-error-message alert alert-danger">{ errorMessage }</p> : '' }
