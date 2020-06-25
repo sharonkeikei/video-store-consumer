@@ -46,8 +46,11 @@ const App = ({url}) => {
         .then((response) => {
           const flashMsg = movie+ " is successfully checked out by "+ customer.name
           console.log(flashMsg);
+        
+          setFlash(flashMsg);
+          
           setTimeout(() => {
-            setFlash(flashMsg);
+            setFlash(null)
           }, 3000);
         })
         .catch((error) => {

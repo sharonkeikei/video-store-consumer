@@ -20,7 +20,7 @@
 .card-description {
   height: 60%;
   margin-bottom: 20px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .card--title {
@@ -29,14 +29,16 @@
   font-weight: 600;
   text-align: center;
   height: 15%;
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
 }
 .card--overview {
   height: 70%;
-  border: 1px solid red;
-  overflow-y: hidden;
-  word-wrap: normal;
+  width: 100%;
+  /* border: 1px solid red; */
   text-overflow: ellipsis;
+  overflow-y: auto;
+  word-wrap: normal;
+  /* white-space: nowrap; */
 }
 
 .center {

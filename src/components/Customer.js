@@ -18,7 +18,7 @@ const url = "http://lorempixel.com/640/380/cats/random"
           <p>{props.address}</p>
           <p>{props.city}, {props.state}, {props.postal_code}</p>
           <p>{props.phone}</p>
-          <p>Memeber since: {(props.registered_at)}</p>
+          <p>Member since: {(props.registered_at)}</p>
           <p>Account Credit: ${props.account_credit}</p>
           <p>Movies Checked Out: {props.movies_checked_out_count}</p>
           <button 
