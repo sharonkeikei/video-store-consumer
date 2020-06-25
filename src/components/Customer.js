@@ -21,7 +21,7 @@ const url = "http://lorempixel.com/640/380/cats/random"
           <p>Member since: </p>
           <p> {new Date(props.registered_at).toDateString()}</p>
           <p>Account Credit: ${props.account_credit}</p>
-          <p>Movies Checked Out: {props.movies_checked_out_count}</p>
+          <p><strong>Movies Checked Out: {props.movies_checked_out_count}</strong></p>
           <button 
           className="btn btn-primary" 
           onClick={() => {props.onClickCallBack(props)} }
