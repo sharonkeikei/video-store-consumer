@@ -8,7 +8,7 @@ const Customer = (props) => {
 
 const url = "http://lorempixel.com/640/380/cats/random"
   return (
-    <div className="container">
+ 
       <section className="card">
         <div className="">
           <img src={url+props.id} alt="customer_pic" className="customer-pic"/>
@@ -19,7 +19,7 @@ const url = "http://lorempixel.com/640/380/cats/random"
           <p>{props.city}, {props.state}, {props.postal_code}</p>
           <p>{props.phone}</p>
           <p>Memeber since: {(props.registered_at)}</p>
-          <p> Account Credit: ${props.account_credit}</p>
+          <p>Account Credit: ${props.account_credit}</p>
           <p>Movies Checked Out: {props.movies_checked_out_count}</p>
           <button 
           className="btn btn-primary" 
@@ -29,7 +29,7 @@ const url = "http://lorempixel.com/640/380/cats/random"
           </button>
         </div>
       </section>
-  </div>
+
   )
 }
 

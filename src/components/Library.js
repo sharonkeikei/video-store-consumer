@@ -36,7 +36,7 @@ const Library = ({baseUrl, onClickCallBack}) => {
   return (
     <div>
       <h3 className='title'>Browse all the movies</h3>
-      <div className="movies-container">
+      <div className="movies-container card-list">
         <div>
           {errorMessage ? <div><h2 className="validation-errors-display">{errorMessage}</h2></div> : ''}
         </div>

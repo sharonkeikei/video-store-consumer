@@ -34,7 +34,7 @@ const Customers = ({baseUrl, onClickCallBack}) => {
   return (
     <div className=''>
       <h3 className='title'>List of Customers</h3>
-      <div className="'customers-list">
+      <div className='customers-list'>
         {customerComponent}
       </div>
     </div>

@@ -1,7 +1,9 @@
 .title {
   margin: 15px;
 }
-.movies-container {
+.card-list.movies-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
