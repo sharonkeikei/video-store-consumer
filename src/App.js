@@ -36,7 +36,7 @@ const App = ({url}) => {
 
   const makeRental = () => {
     const today = new Date();
-    const dueDate = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const dueDate = new Date(new Date().getTime() + (7 * 24 * 3600 * 1000));
 
     if (customer && movie) {
       axios.post((url+'rentals/'+ movie +'/check-out'),{
@@ -46,9 +46,10 @@ const App = ({url}) => {
         .then((response) => {
           const flashMsg = movie+ " is successfully checked out by "+ customer.name
           console.log(flashMsg);
-        
+          setCustomer("");
+          setMovie("");
           setFlash(flashMsg);
-          
+
           setTimeout(() => {
             setFlash(null)
           }, 3000);
