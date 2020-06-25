@@ -14,11 +14,12 @@ const url = "http://lorempixel.com/640/380/cats/random"
           <img src={url+props.id} alt="customer_pic" className="customer-pic"/>
         </div>
         <div className="customer-info-text">
-          <p><strong>{props.name}</strong></p>
+          <h5><strong>{props.name}</strong></h5>
           <p>{props.address}</p>
           <p>{props.city}, {props.state}, {props.postal_code}</p>
           <p>{props.phone}</p>
-          <p>Member since: {(props.registered_at)}</p>
+          <p>Member since: </p>
+          <p> {new Date(props.registered_at).toDateString()}</p>
           <p>Account Credit: ${props.account_credit}</p>
           <p>Movies Checked Out: {props.movies_checked_out_count}</p>
           <button 
