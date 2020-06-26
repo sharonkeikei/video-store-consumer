@@ -33,6 +33,13 @@ const App = ({url}) => {
     const movieName = movie.title
     setMovie(movieName);
   }
+  const removeCustomer = () => {
+    setCustomer("");
+  }
+
+  const removeMovie = () => {
+    setMovie("");
+  }
 
   const makeRental = () => {
     const today = new Date();
@@ -74,20 +81,34 @@ const App = ({url}) => {
           Selected Customer: <span className='text_box'>{customer.name}</span>
           < Link to ="/customerdetail">
             <button 
-              className="btn btn-primary" 
+              className="btn btn-primary font-pg-button" 
             >
             Customer Detail
             </button>
           </Link>
+
+          <button 
+            className="btn btn-primary font-pg-button" 
+            onClick={() => removeCustomer()}
+            >
+            Remove Customer
+          </button>
         </p>
         <p> 
           Selected Movie: <span className='text_box'>{movie}</span>  
           <button 
-            className="btn btn-primary" 
+            className="btn btn-primary font-pg-button" 
             onClick={() => {makeRental(customer, movie)} }
             >
             Make Rental
             </button>
+
+            <button 
+            className="btn btn-primary font-pg-button" 
+            onClick={() => removeMovie()}
+            >
+            Remove Movie
+          </button>
         </p>
       </div>
       { flash ? <p className="center-error-message alert alert-success">{ flash }</p> : '' }
