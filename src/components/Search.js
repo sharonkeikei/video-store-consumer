@@ -90,7 +90,8 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
         />
         <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
-      {flash ? <div><h2 className="validation-errors-display">{flash}</h2></div> : ''}
+      { flash ? <p className="center-error-message alert alert-success">{ flash }</p> : '' }
+      { errorMessage ? <p className="center-error-message alert alert-danger">{ errorMessage }</p> : '' }
       {libraryMovieList.length >= 1 ? 
         <div>
         <h3>Library Result</h3>
