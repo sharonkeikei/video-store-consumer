@@ -47,7 +47,6 @@ const Library = ({baseUrl, onClickCallBack}) => {
 }
 
 Library.propTypes = {
-  // movieList: PropTypes.array.isRequired,
   onClickCallBack: PropTypes.func.isRequired
 }
 

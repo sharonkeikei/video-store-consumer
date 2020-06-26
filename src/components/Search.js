@@ -3,14 +3,16 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Movie from './Movie';
-import Library from './Library';
+import SearchResult from './SearchResult';
 
-const Search = ({baseUrl, onClickCallBack}) => {
+
+const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
   //state - input query, movies
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [libraryMovieList, setLibraryMovieList] = useState([]);
+  const [ flash, setFlash ] = useState("");
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -47,6 +49,29 @@ const Search = ({baseUrl, onClickCallBack}) => {
     }
   }
 
+  // const addToLibrary = (movie) => {
+  //   const movie_params = {
+  //     title: movie.title,
+  //     overview: movie.overview,
+  //     release_date: movie.release_date,
+  //     image_url: movie.image_url,
+  //     external_id: movie.external_id
+  //   }
+  //   axios.post(baseUrl+'movies')
+  //     .then((response) => {
+  //       const flashMsg = movie + " is successfully added to the library! "
+  //       setFlash(flashMsg);
+  //       setTimeout(() => {
+  //         setFlash(null)
+  //       }, 2000);
+  //     })
+  //     .catch((error) => {
+  //       setErrorMessage(error.message);
+  //     });
+  // }
+
+
+
   const libraryResultComponent = libraryMovieList.map((movie, i) => {
     return (
       <Movie
@@ -58,13 +83,13 @@ const Search = ({baseUrl, onClickCallBack}) => {
     )
   });
 
-  console.log(libraryResultComponent.length)
+
   const SearchComponent = movies.map((movie, i) => {
     return (
-      <Movie
+      <SearchResult
         key={movie.external_id}
         {...movie}
-        onClickCallBack={onClickCallBack} 
+        addToLibrary={addToLibrary}
         action={"Add Movie"}
       />
     )
@@ -80,7 +105,7 @@ const Search = ({baseUrl, onClickCallBack}) => {
         />
         <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
-      {errorMessage ? <div><h2 className="validation-errors-display">{errorMessage}</h2></div> : ''}
+      {flash ? <div><h2 className="validation-errors-display">{flash}</h2></div> : ''}
       {libraryMovieList.length >= 1 ? 
         <div>
         <h3>Library Result</h3>

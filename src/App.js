@@ -52,7 +52,6 @@ const App = ({url}) => {
       })
         .then((response) => {
           const flashMsg = movie+ " is successfully checked out by "+ customer.name
-          console.log(flashMsg);
           setCustomer("");
           setMovie("");
           setFlash(flashMsg);
@@ -65,6 +64,34 @@ const App = ({url}) => {
           setErrorMessage(error.message);
         });
     }
+  }
+
+  const addToLibrary = (movie) => {
+    console.log(movie)
+    const movie_params = {
+      title: movie.title,
+      overview: movie.overview,
+      release_date: movie.release_date,
+      image_url: movie.image_url,
+      external_id: movie.external_id
+    }
+    axios.post((url+'movies'),{ 
+      title: movie.title,
+      overview: movie.overview,
+      release_date: movie.release_date,
+      image_url: movie.image_url,
+      external_id: movie.external_id
+    })
+      .then((response) => {
+        const flashMsg = movie.title + " is successfully added to the library! "
+        setFlash(flashMsg);
+        setTimeout(() => {
+          setFlash(null)
+        }, 2000);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
   }
 
   return (
@@ -121,6 +148,7 @@ const App = ({url}) => {
             <Search  
               baseUrl={BASE_URL}
               onClickCallBack={selectMovie}
+              addToLibrary={addToLibrary}
             />
           </Route>        
           <Route exact path="/library">
@@ -132,7 +160,7 @@ const App = ({url}) => {
           <Route exact path="/customers">
             <Customers
               baseUrl={BASE_URL}
-              onClickCallBack={selectCustomer} 
+              onClickCallBack={selectCustomer}
             />
           </Route>
           <Route exact path="/customerdetail">

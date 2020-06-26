@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './movie.css';
+import './SearchResult.css';
 
-const Movie = (props) => {
+const SearchResult = (props) => {
   
   return (
     <section className="card movie-card">
@@ -17,22 +17,22 @@ const Movie = (props) => {
       </div>
       <button 
           className="btn btn-primary" 
-          onClick={() => {props.onClickCallBack(props)} }
+          onClick={() => {props.addToLibrary(props)} }
           >
-          Select Movie
+          Add To Library
       </button>
     </section>
   );
 };
 
-Movie.propTypes = {
+SearchResult.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string.isRequired,
   overview: PropTypes.string.isRequired,
   release_date: PropTypes.string,
   image_url: PropTypes.string.isRequired,
   external_id: PropTypes.number.isRequired,
-  onClickCallBack: PropTypes.func.isRequired,
+  addToLibrary: PropTypes.func.isRequired,
   action: PropTypes.string.isRequired,
 }
-export default Movie;
+export default SearchResult;
