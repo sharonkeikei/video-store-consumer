@@ -120,6 +120,7 @@ const App = ({url}) => {
           <Route path="/search">  
             <Search  
               baseUrl={BASE_URL}
+              onClickCallBack={selectMovie}
             />
           </Route>        
           <Route exact path="/library">
