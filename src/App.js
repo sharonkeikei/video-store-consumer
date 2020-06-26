@@ -18,7 +18,7 @@ import CustomerDetail from './components/CustomerDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = ({url}) => {
-
+  
   const BASE_URL = url
   const [ customer, setCustomer ] = useState("");
   const [ movie, setMovie ] = useState(null);

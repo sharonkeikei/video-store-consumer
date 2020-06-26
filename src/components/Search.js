@@ -10,20 +10,20 @@ const Search = ({baseUrl}) => {
   const [movies, setMovies] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
+  const setErrorMessage = () => {
+
+  }
+
+  const setMessage = () => {
+
+  }
+
   const handleChange = (event) => {
-    event.preventDefault();
-    if (query) {
-      setQuery(event.target.value);
-      axios.get(baseUrl+'movies?query=<'+ query+'>')
-        .then((response) => {
-          const apiMoviesList = response.data;
-          console.log(apiMoviesList);
-          setMovies(apiMoviesList);
-        })
-        .catch((error) => {
-          setErrorMessage(error.message);
-        });
-    }
+
+  }
+
+  const createMovie = (movieInfo) => {
+
   }
 
   const SearchComponent = movies.map((movie, i) => {
