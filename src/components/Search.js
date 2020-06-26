@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Movie from './Movie';
+import SearchResult from './SearchResult';
 
-const Search = ({baseUrl}) => {
+const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
   //state - input query, movies
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
