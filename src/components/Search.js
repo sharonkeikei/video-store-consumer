@@ -14,10 +14,6 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
   const [apiMoviesList] = useState([]);
   const [flash, setFlash] = useState("");
 
-  // useEffect(() => {
-  //   handleChange(event);
-  // },[]);
-
   const handleChange = (event) => {
 
     event.preventDefault();
@@ -36,16 +32,6 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
         });
     }
   }
-
-  // const createMovie = (movieInfo) => {
-  //   axios.post(baseUrl, movieInfo)
-  //   .then((response) => {
-  //     setMessage();
-  //   })
-  //   .catch((error) => {
-  //     setErrorMessage();
-  //   })
-  // }
 
   const libraryResultComponent = apiMoviesList.map((movie, i) => {
     return (
