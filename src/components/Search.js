@@ -36,15 +36,15 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
     }
   }
 
-  const createMovie = (movieInfo) => {
-    axios.post(baseUrl, movieInfo)
-    .then((response) => {
-      setMessage();
-    })
-    .catch((error) => {
-      setErrorMessage();
-    })
-  }
+  // const createMovie = (movieInfo) => {
+  //   axios.post(baseUrl, movieInfo)
+  //   .then((response) => {
+  //     setMessage();
+  //   })
+  //   .catch((error) => {
+  //     setErrorMessage();
+  //   })
+  // }
 
   const libraryResultComponent = apiMoviesList.map((movie, i) => {
     return (
