@@ -37,7 +37,13 @@ const Search = ({baseUrl}) => {
   }
 
   const createMovie = (movieInfo) => {
-
+    axios.post(baseUrl, movieInfo)
+    .then((response) => {
+      setMessage();
+    })
+    .catch((error) => {
+      setErrorMessage();
+    })
   }
 
   const SearchComponent = movies.map((movie, i) => {
