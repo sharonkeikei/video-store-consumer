@@ -14,7 +14,6 @@ const Library = ({baseUrl, onClickCallBack}) => {
     axios.get(baseUrl+'movies')
       .then((response) => {
         const apiMovieList = response.data;
-        console.log(apiMovieList);
         setMovieList(apiMovieList);
       })
       .catch((error) => {

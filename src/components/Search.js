@@ -17,7 +17,6 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
 
   useEffect(() => {
     updateMovie();
-    console.log("loading")
   },[]);
 
   
@@ -25,39 +24,9 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
     event.preventDefault();
     // setQuery(event.target.value);
     updateMovie();
-    // if (query !== undefined && query !== null && query !== "") {
-    //   let libraryList = [];
-    //   let movieList = [];
-
-    //   axios.get(baseUrl+'movies')
-    //     .then((response) => {
-    //       const movieList = response.data.filter(movie => {
-    //         const searchQuery = query !== undefined && query !== null ? query.toLowerCase() : ""
-    //         return movie.title.toLowerCase().includes(query.toLowerCase())
-    //       });
-    //       console.log("flagOne", movieList);
-    //       axios.get(baseUrl+'movies?query=<'+ query+'>')
-    //       .then((response) => {
-    //         const apiMoviesList = response.data;
-    //         setMovies(apiMoviesList);
-    //       })
-    //       .catch((error) => {
-    //         setErrorMessage(error.message);
-    //       });
-    //       setLibraryMovieList(movieList);
-    //     })
-    //     .catch((error) => {
-    //       setErrorMessage(error.message);
-    //     });
-    //     setQuery("")
-    // } else {
-    //   setLibraryMovieList([])
-    //   setMovies([]);
-    // }
   }
 
   const updateMovie = () => {
-    console.log("updating movies", query)
     if (query !== undefined && query !== null && query !== "") {
       let libraryList = [];
       let movieList = [];
@@ -68,7 +37,6 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
             const searchQuery = query !== undefined && query !== null ? query.toLowerCase() : ""
             return movie.title.toLowerCase().includes(query.toLowerCase())
           });
-          console.log("flagOne", movieList);
           axios.get(baseUrl+'movies?query=<'+ query+'>')
           .then((response) => {
             const apiMoviesList = response.data;
@@ -112,7 +80,6 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
       />
     )
   });
-console.log("flag", query)
   return (
     <div className="container">
       <h3>Search A Movie</h3>
