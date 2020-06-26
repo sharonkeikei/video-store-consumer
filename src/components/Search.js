@@ -23,7 +23,6 @@ const Search = ({baseUrl, onClickCallBack}) => {
       axios.get(baseUrl+'movies')
         .then((response) => {
           const movieList = response.data.filter(movie => {
-            console.log("flag2", query);
             const searchQuery = query !== undefined && query !== null ? query.toLowerCase() : ""
             return movie.title.toLowerCase().includes(query.toLowerCase())
           });
@@ -31,7 +30,6 @@ const Search = ({baseUrl, onClickCallBack}) => {
           axios.get(baseUrl+'movies?query=<'+ query+'>')
           .then((response) => {
             const apiMoviesList = response.data;
-            // console.log(apiMoviesList);
             setMovies(apiMoviesList);
           })
           .catch((error) => {
