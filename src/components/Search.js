@@ -11,11 +11,12 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
   const [movies, setMovies] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [libraryMovieList, setLibraryMovieList] = useState([]);
+  const [apiMoviesList] = useState([]);
   const [flash, setFlash] = useState("");
 
-  useEffect(() => {
-    updateMovie();
-  },[]);
+  // useEffect(() => {
+  //   handleChange(event);
+  // },[]);
 
   const handleChange = (event) => {
 
@@ -53,6 +54,18 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
         {...movie}
         onClickCallBack={onClickCallBack} 
         action={"Select Movie"}
+      />
+    )
+  });
+
+  const SearchComponent = movies.map((movie, i) => {
+    return (
+      <SearchResult
+        key={movie.external_id}
+        {...movie}
+        addToLibrary={addToLibrary}
+        action={"Add Movie"}
+        handleChange={handleChange}
       />
     )
   });
