@@ -10,17 +10,14 @@ const CustomerDetail = ({baseUrl , customer}) => {
 
   useEffect(() => {
     getCustomer()
-  },[]);
-
-  useEffect(() => {
     returnMovie()
   },[]);
+
 
   const getCustomer = () => {
     axios.get(baseUrl+'customers/'+ customer.id)
       .then((response) => {
         const customerCheckoutList = response.data;
-        console.log(customerCheckoutList);
         setCheckOutList(customerCheckoutList);
       })
       .catch((error) => {

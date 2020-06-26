@@ -5,7 +5,6 @@ import './movie.css';
 
 const Movie = (props) => {
   
-  
   return (
     <section className="card movie-card">
       <div className="card--image">

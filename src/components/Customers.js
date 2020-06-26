@@ -12,7 +12,6 @@ const Customers = ({baseUrl, onClickCallBack}) => {
     axios.get(baseUrl+'customers')
       .then((response) => {
         const apiCustomersList = response.data;
-        console.log(apiCustomersList);
         setCustomersList(apiCustomersList);
       })
       .catch((error) => {

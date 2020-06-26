@@ -52,20 +52,21 @@ const App = ({url}) => {
       })
         .then((response) => {
           const flashMsg = movie+ " is successfully checked out by "+ customer.name
-          console.log(flashMsg);
           setCustomer("");
           setMovie("");
           setFlash(flashMsg);
 
           setTimeout(() => {
             setFlash(null)
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
-          setErrorMessage(error.message);
+          setErrorMessage(movie + "wasn't checked out!");
         });
     }
   }
+
+  
 
   return (
     <Router>
@@ -120,6 +121,7 @@ const App = ({url}) => {
           <Route path="/search">  
             <Search  
               baseUrl={BASE_URL}
+              onClickCallBack={selectMovie}
             />
           </Route>        
           <Route exact path="/library">
@@ -131,7 +133,7 @@ const App = ({url}) => {
           <Route exact path="/customers">
             <Customers
               baseUrl={BASE_URL}
-              onClickCallBack={selectCustomer} 
+              onClickCallBack={selectCustomer}
             />
           </Route>
           <Route exact path="/customerdetail">
