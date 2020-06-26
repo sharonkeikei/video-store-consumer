@@ -59,15 +59,14 @@ const Search = ({baseUrl, onClickCallBack}) => {
     )
   });
 
-
+  console.log(libraryResultComponent.length)
   const SearchComponent = movies.map((movie, i) => {
     return (
       <Movie
         key={movie.external_id}
         {...movie}
-        // TODO: add onClickCallBack for selecting the movie
-        // movieClickCallback={movieClickCallback}
-        // action={"Select Movie"} 
+        onClickCallBack={onClickCallBack} 
+        action={"Add Movie"}
       />
     )
   });
@@ -82,10 +81,19 @@ const Search = ({baseUrl, onClickCallBack}) => {
         />
         <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
-      <h3>Library Result</h3>
-      {libraryResultComponent}
-      <h3>External Result</h3>
-      {SearchComponent}
+      {errorMessage ? <div><h2 className="validation-errors-display">{errorMessage}</h2></div> : ''}
+      {libraryMovieList.length >= 1 ? 
+        <div>
+        <h3>Library Result</h3>
+        <div className="movie_list">
+          {libraryResultComponent}
+        </div> 
+        </div>: ""
+      }
+        <h3>External Result</h3>
+      <div className="movie_list">
+        {SearchComponent}
+      </div>
     </div>
     
   )
