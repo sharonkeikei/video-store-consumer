@@ -42,6 +42,7 @@ const Search = ({baseUrl, onClickCallBack}) => {
         .catch((error) => {
           setErrorMessage(error.message);
         });
+        setQuery("")
     } else {
       setLibraryMovieList([])
       setMovies([]);
@@ -90,12 +91,16 @@ const Search = ({baseUrl, onClickCallBack}) => {
         </div> 
         </div>: ""
       }
-        <h3>External Result</h3>
-      <div className="movie_list">
-        {SearchComponent}
-      </div>
-    </div>
-    
+      {movies.length >= 1 ? 
+        <div>
+          <h3>External Result</h3>
+          <h6>Add a movie that you love!</h6>
+          <div className="movie_list">
+            {SearchComponent}
+          </div>
+        </div> : ""
+      }
+      </div> 
   )
 }
 
