@@ -10,11 +10,9 @@ const CustomerDetail = ({baseUrl , customer}) => {
 
   useEffect(() => {
     getCustomer()
-  },[]);
-
-  useEffect(() => {
     returnMovie()
   },[]);
+
 
   const getCustomer = () => {
     axios.get(baseUrl+'customers/'+ customer.id)

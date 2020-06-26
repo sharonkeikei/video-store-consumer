@@ -61,38 +61,12 @@ const App = ({url}) => {
           }, 2000);
         })
         .catch((error) => {
-          setErrorMessage(error.message);
+          setErrorMessage(movie + "wasn't checked out!");
         });
     }
   }
 
-  const addToLibrary = (movie) => {
-    console.log(movie)
-    const movie_params = {
-      title: movie.title,
-      overview: movie.overview,
-      release_date: movie.release_date,
-      image_url: movie.image_url,
-      external_id: movie.external_id
-    }
-    axios.post((url+'movies'),{ 
-      title: movie.title,
-      overview: movie.overview,
-      release_date: movie.release_date,
-      image_url: movie.image_url,
-      external_id: movie.external_id
-    })
-      .then((response) => {
-        const flashMsg = movie.title + " is successfully added to the library! "
-        setFlash(flashMsg);
-        setTimeout(() => {
-          setFlash(null)
-        }, 2000);
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      });
-  }
+  
 
   return (
     <Router>
@@ -148,7 +122,6 @@ const App = ({url}) => {
             <Search  
               baseUrl={BASE_URL}
               onClickCallBack={selectMovie}
-              addToLibrary={addToLibrary}
             />
           </Route>        
           <Route exact path="/library">

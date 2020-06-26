@@ -14,15 +14,55 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
   const [libraryMovieList, setLibraryMovieList] = useState([]);
   const [ flash, setFlash ] = useState("");
 
+
+  useEffect(() => {
+    updateMovie();
+    console.log("loading")
+  },[]);
+
+  
   const handleChange = (event) => {
     event.preventDefault();
-    setQuery(event.target.value);
+    // setQuery(event.target.value);
+    updateMovie();
+    // if (query !== undefined && query !== null && query !== "") {
+    //   let libraryList = [];
+    //   let movieList = [];
+
+    //   axios.get(baseUrl+'movies')
+    //     .then((response) => {
+    //       const movieList = response.data.filter(movie => {
+    //         const searchQuery = query !== undefined && query !== null ? query.toLowerCase() : ""
+    //         return movie.title.toLowerCase().includes(query.toLowerCase())
+    //       });
+    //       console.log("flagOne", movieList);
+    //       axios.get(baseUrl+'movies?query=<'+ query+'>')
+    //       .then((response) => {
+    //         const apiMoviesList = response.data;
+    //         setMovies(apiMoviesList);
+    //       })
+    //       .catch((error) => {
+    //         setErrorMessage(error.message);
+    //       });
+    //       setLibraryMovieList(movieList);
+    //     })
+    //     .catch((error) => {
+    //       setErrorMessage(error.message);
+    //     });
+    //     setQuery("")
+    // } else {
+    //   setLibraryMovieList([])
+    //   setMovies([]);
+    // }
+  }
+
+  const updateMovie = () => {
+    console.log("updating movies", query)
     if (query !== undefined && query !== null && query !== "") {
       let libraryList = [];
       let movieList = [];
 
-
-      axios.get(baseUrl+'movies')
+      axios.get('/movies')
         .then((response) => {
           const movieList = response.data.filter(movie => {
             const searchQuery = query !== undefined && query !== null ? query.toLowerCase() : ""
@@ -42,35 +82,12 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
         .catch((error) => {
           setErrorMessage(error.message);
         });
-        setQuery("")
+        // setQuery("")
     } else {
       setLibraryMovieList([])
       setMovies([]);
     }
   }
-
-  // const addToLibrary = (movie) => {
-  //   const movie_params = {
-  //     title: movie.title,
-  //     overview: movie.overview,
-  //     release_date: movie.release_date,
-  //     image_url: movie.image_url,
-  //     external_id: movie.external_id
-  //   }
-  //   axios.post(baseUrl+'movies')
-  //     .then((response) => {
-  //       const flashMsg = movie + " is successfully added to the library! "
-  //       setFlash(flashMsg);
-  //       setTimeout(() => {
-  //         setFlash(null)
-  //       }, 2000);
-  //     })
-  //     .catch((error) => {
-  //       setErrorMessage(error.message);
-  //     });
-  // }
-
-
 
   const libraryResultComponent = libraryMovieList.map((movie, i) => {
     return (
@@ -91,10 +108,11 @@ const Search = ({baseUrl, onClickCallBack, addToLibrary}) => {
         {...movie}
         addToLibrary={addToLibrary}
         action={"Add Movie"}
+        updateMovie={updateMovie}
       />
     )
   });
-
+console.log("flag", query)
   return (
     <div className="container">
       <h3>Search A Movie</h3>
