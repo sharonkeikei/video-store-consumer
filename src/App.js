@@ -59,7 +59,7 @@ const App = ({url}) => {
 
           setTimeout(() => {
             setFlash(null)
-          }, 1000);
+          }, 2000);
         })
         .catch((error) => {
           setErrorMessage(error.message);
