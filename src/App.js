@@ -81,14 +81,14 @@ const App = ({url}) => {
           Selected Customer: <span className='text_box'>{customer.name}</span>
           < Link to ="/customerdetail">
             <button 
-              className="btn btn-primary font-pg-button" 
+              className="btn btn-secondary font-pg-button" 
             >
             Customer Detail
             </button>
           </Link>
 
           <button 
-            className="btn btn-primary font-pg-button" 
+            className="btn btn-secondary font-pg-button" 
             onClick={() => removeCustomer()}
             >
             Remove Customer
@@ -97,14 +97,14 @@ const App = ({url}) => {
         <p> 
           Selected Movie: <span className='text_box'>{movie}</span>  
           <button 
-            className="btn btn-primary font-pg-button" 
+            className="btn btn-secondary font-pg-button" 
             onClick={() => {makeRental(customer, movie)} }
             >
             Make Rental
             </button>
 
             <button 
-            className="btn btn-primary font-pg-button" 
+            className="btn btn-secondary font-pg-button" 
             onClick={() => removeMovie()}
             >
             Remove Movie
